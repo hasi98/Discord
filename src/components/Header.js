@@ -1,13 +1,24 @@
 import React from 'react'
 import {MenuIcon} from "@heroicons/react/outline"
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from "../firebase"
+import { useNavigate } from 'react-router-dom';
+import { auth, provider } from "../firebase"
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 
 function Header() {
   const [user] = useAuthState(auth);
+  const history = useNavigate();
+
+  const signIn = (e) => {
+    e.preventDefault();
+
+    auth
+    .signInWithPopup(provider)
+    .then(() => history("/channels"))
+    .catch((error) => alert(error.message));
+  };
 
 
   return (
@@ -26,7 +37,9 @@ function Header() {
       </div>
       <div className='flex space-x-4'>
       <button className='bg-white p-2 rounded-full text-xs md:text-sm px-4 focus:outline-none hover:shadow-2xl hover:text-discord_blurple
-      transition duration-200 ease-in-out whitespace-nowrap font-medium'>Login</button>
+      transition duration-200 ease-in-out whitespace-nowrap font-medium' onClick={!user ? signIn : () => history("/channels")}>
+      {!user ? "Login" : "Open Discord"}
+      </button>
       <MenuIcon className='h-9 text-white cursor-pointer lg:hidden'/>
 
       </div>
