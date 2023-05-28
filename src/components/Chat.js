@@ -40,7 +40,7 @@ function Chat() {
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                 message: inputRef.current.value,
                 name: user?.displayName,
-                photoUrl: user?.photoUrl,
+                photoURL: user?.photoURL,
                 email: user?.email
             })
         }
@@ -74,7 +74,7 @@ function Chat() {
 
       <main className='flex-grow overflow-y-scroll scrollbar-hide'>
         {messages?.docs.map((doc) => {
-            const {message, timestamp, name, photoUrl, email} = doc.data();
+            const {message, timestamp, name, photoURL, email} = doc.data();
 
             return (
                 <Message 
@@ -84,7 +84,7 @@ function Chat() {
             timestamp={timestamp}
             name={name}
             email={email}
-            photoUrl={photoUrl}
+            photoURL={photoURL}
             />
             );
         })}
