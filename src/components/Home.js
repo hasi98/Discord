@@ -6,7 +6,11 @@ import { auth, db } from "../firebase"
 import ServerIcon from "./ServerIcon"
 import {PlusIcon} from "@heroicons/react/outline"
 import {ChevronDownIcon} from "@heroicons/react/outline"
+import {MicrophoneIcon} from "@heroicons/react/outline"
+import {PhoneIcon} from "@heroicons/react/outline"
+import {CogIcon} from "@heroicons/react/outline"
 import Channel from './Channel';
+import Chat from './Chat';
 
 function Home() {
 
@@ -61,7 +65,32 @@ function Home() {
                 ))}
             </div>
         </div>
+        <div className='bg-[#292b2f] p-2 flex justify-between items-center space-x-8'>
+            <div className='flex items-center space-x-1'>
+                <img src={user?.photoURL} alt='' className='h-10 rounded-full' 
+                onClick={() => auth.signOut()}/>
+                <h4 className='text-white textsx font-medium'>
+                {user?.displayName}
+                    <span className='text-[#b9bbbe] block'>#{user?.uid.substring(0,4)}</span>
+                </h4>
+            </div>
+            <div className='text-gray-400 flex items-center'>
+                <div className='hover:bg-[#3a3c43] p-2 rounded-md'>
+                    <MicrophoneIcon className="h-5 icon"/>
+                </div>
+                <div className='hover:bg-[#3a3c43] p-2 rounded-md'>
+                    <PhoneIcon className="h-5 icon "/>
+                </div>
+                <div className='hover:bg-[#3a3c43] p-2 rounded-md'>
+                    <CogIcon className="h-5 icon"/>
+                </div>
+            </div>
         </div>
+        </div>
+            <div className='bg-[#36393f] flex-grow'>
+                <Chat />
+            </div>
+
       </div>
     </>
   )

@@ -11,6 +11,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Landing />} />
         <Route exact path="/channels" element={<Home />}/>
+        <Route exact path="/channels/:id" element={<Home />}/>
       </Routes>
     </Router>
   );
