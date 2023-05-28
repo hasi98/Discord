@@ -4,9 +4,9 @@ import { useCollection } from 'react-firebase-hooks/firestore'
 import { Navigate } from 'react-router-dom';
 import { auth, db } from "../firebase"
 import ServerIcon from "./ServerIcon"
-import {PlusIcon} from "@heroicons/react/outline"
-import {ChevronDownIcon} from "@heroicons/react/outline"
-import {MicrophoneIcon} from "@heroicons/react/outline"
+import {PlusIcon} from "@heroicons/react/solid"
+import {ChevronDownIcon} from "@heroicons/react/solid"
+import {MicrophoneIcon} from "@heroicons/react/solid"
 import {PhoneIcon} from "@heroicons/react/outline"
 import {CogIcon} from "@heroicons/react/outline"
 import Channel from './Channel';
