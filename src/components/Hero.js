@@ -12,7 +12,7 @@ function Hero() {
                 <button className='heroButton hover:text-discord_blurple'>
                 <DownloadIcon className=' w-6 mr-2' />
                 Download for Mac</button>
-                <button className='heroButton bg-gray-900 text-white w-72 hover:bg-gray-800'>Open Discrod in your browser</button>
+                <button className='heroButton bg-gray-900 text-white w-72 hover:bg-gray-800'>Open Discord in your browser</button>
             </div>
         </div>
         <div className='flex-grow'>
